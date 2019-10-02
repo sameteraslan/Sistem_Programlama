@@ -1,0 +1,47 @@
+:::Amacımız her dili kendi içinde derleyip oluşan obje dosyalarını link etmek.
+sudo apt-get install gcc-multilib
+1.Adım
+---------------------------
+:::assembly de compile etmek
+nasm -f elf32 factorial.asm
+---------------------------
+2.Adım
+---------------------------
+:::c de compile etmek
+-c : sadece compile et, link etme
+gcc -c factmain.c -m32
+---------------------------
+3.Adım
+----------------------------
+:::İki o dosyasını link etmek
+gcc factmain.o factorial.o -m32 -o factorial
+----------------------------
+
+++++++++++++++++++++++++++++
+
+:::Debugger
+----------------------------
+nasm -f elf32 -g factorial.asm
+gcc -c -g factmain.c -m32
+gcc -g factmain.o factorial.o -m32 -o factorial
+
+:::Debugger help
+----------------------------
+help breakpoint
+...falan
+----------------------------
+
+:::Debugger breakpoint
+----------------------------
+break function_name ya da line_number
+örnek:
+    break 5
+    break main
+----------------------------
+
+:::Info
+----------------------------
+info registers eax
+info breakpoints
+----------------------------
+
